@@ -1,0 +1,38 @@
+<h1 class="container-fluid">My todo list</h1>
+<br>
+
+  <%= link_to "CREAR ToDo", todos_new_path, class: "btn btn-secondary" %>
+
+<br><br><br>
+
+<% @todos.each do |todo| %>
+  <div class="container-fluid">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+        <% if todo.completed == true %>
+          <label class="btn btn-success">Completada</label>
+        <% else %>
+          <label class="btn btn-warning"><%= link_to "¿ ✓ ?", complete_todo_path(todo) %></label>
+        <% end %>
+        </div>
+      </div>
+      <div class="card card-body bg-light">
+        <div class="row">
+          <div class="col-6">
+            <h2><%= todo.description %></h2>
+          </div>
+          <div class="col-2 btn-group">
+            <p class="btn btn-primary"><%= link_to "SHOW", todo %></p>
+          </div>
+          <div class="col-2 btn-group">
+            <p class="btn btn-warning"> <%= link_to "EDITAR", edit_todo_path(todo) %> </p>
+          </div>
+          <div class="col-2 btn-group">
+            <p class="btn btn-danger"> <%= link_to "ELIMINAR", todo, method: :delete %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>Listado: Pendientes y Completados</h1>
+
+<br><br>
+
+<div class="row">
+  <div class="col-6 card card-body">
+    <h2>No Completados</h2>
+    <% @todos.each do |todo| %>
+      <% if todo.completed != true %>
+        <li class="card card-body bg-light"> <%= todo.description %> </li>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-6 card card-body">
+    <h2>Completados</h2>
+    <% @todos.each do |todo| %>
+      <% if todo.completed == true %>
+        <li class="card card-body bg-light"> <%= todo.description %> </li>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+</div>

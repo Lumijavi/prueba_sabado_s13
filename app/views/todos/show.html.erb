@@ -1,0 +1,13 @@
+<h1> ToDo: </h1>
+
+<br>
+
+<%= link_to "Regresar", todos_path, class: "btn btn-secondary btn-sm" %>
+
+<br><br>
+
+<div class="card card-body bg-light">
+  <h2> <%= @todo.description %> </h2>
+  <p> <%= @todo.completed %> </p>
+  <p> <%= @todo.created_at %> </p>
+</div>
